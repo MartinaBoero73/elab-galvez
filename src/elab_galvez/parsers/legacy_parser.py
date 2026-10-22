@@ -43,12 +43,21 @@ def _parsear_periodo(valor: str) -> PeriodoLiquidacion:
     meses = {
         "ENERO": 1, "FEBRERO": 2, "MARZO": 3, "ABRIL": 4,
         "MAYO": 5, "JUNIO": 6, "JULIO": 7, "AGOSTO": 8,
-        "SEPTIEMBRE": 9, "OCTUBRE": 10, "NOVIEMBRE": 11, "DICIEMBRE": 12,
+        "SEPTIEMBRE": 9, "SETIEMBRE": 9, "OCTUBRE": 10, "NOVIEMBRE": 11, "DICIEMBRE": 12,
     }
-    partes = valor.strip().upper().split()
-    mes = meses.get(partes[0], 1) if len(partes) > 0 else 1
-    anio = int(partes[1]) if len(partes) > 1 else 1900
+
+    texto = valor.strip().upper()
     
+    match_anio = re.search(r'\b(19|20)\d{2}\b', texto)
+    anio = int(match_anio.group()) if match_anio else 1900
+    
+    # Safe name extraction (works for annual licenses and other with month not specificated)
+    mes = 1 
+    for nombre_mes, numero_mes in meses.items():
+        if nombre_mes in texto:
+            mes = numero_mes
+            break
+            
     return PeriodoLiquidacion(mes=mes, anio=anio)
 
 
