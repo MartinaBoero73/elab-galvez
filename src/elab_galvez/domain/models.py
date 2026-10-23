@@ -27,7 +27,8 @@ class Empleado(BaseModel):
     nombre: str
     fecha_ingreso: date | None = None
     fecha_ingreso_reconocida: date | None = None # Recognized entry date (FEC.ING.REC.)
-    categoria_profesional: str | None = None
+    categoria: str | None = None
+    calificacion_profesional: str | None = None
     banco_deposito: str | None = None
     documento: str | None = None
 

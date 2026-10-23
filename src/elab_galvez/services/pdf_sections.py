@@ -47,11 +47,12 @@ def generar_cabecera(recibo: ReciboSueldo, estilo_normal, estilo_negrita, estilo
     fecha_ingreso_rec_str = recibo.empleado.fecha_ingreso_reconocida.strftime("%d/%m/%Y") if recibo.empleado.fecha_ingreso_reconocida else ""
     
     datos_emp_superior = [
-        ["Apellido y Nombre", "Legajo", "Conv./Categoría"],
+        ["Apellido y Nombre", "Legajo", "Conv./Categoría", "Calificación Profesional"],
         [
             Paragraph(f"<b>{recibo.empleado.nombre}</b>", estilo_negrita), 
             Paragraph(f"<b>{recibo.empleado.legajo}</b>", estilo_negrita), 
-            Paragraph(f'<b>"{recibo.empleado.categoria_profesional}"</b>', estilo_negrita)
+            Paragraph(f'<b>"{recibo.empleado.categoria}"</b>', estilo_negrita),
+            Paragraph(f'<b>"{recibo.empleado.calificacion_profesional}"</b>', estilo_negrita)
         ]
     ]
     
@@ -60,7 +61,7 @@ def generar_cabecera(recibo: ReciboSueldo, estilo_normal, estilo_negrita, estilo
         [f"{recibo.empleado.documento or ''}", recibo.empleado.cuil or "", fecha_ingreso_str, fecha_ingreso_rec_str]
     ]
     
-    t_sup = Table(datos_emp_superior, colWidths=[200, 100, 240])
+    t_sup = Table(datos_emp_superior, colWidths=[180, 60, 150, 150])
     t_inf = Table(datos_emp_inferior, colWidths=[135, 135, 135, 135])
     
     estilo_grilla = TableStyle([

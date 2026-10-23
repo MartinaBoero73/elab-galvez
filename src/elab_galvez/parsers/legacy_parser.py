@@ -184,7 +184,8 @@ def parsear_recibo_completo(
         cuil=cab.get("CUIL", ""),
         fecha_ingreso=_parsear_fecha(cab.get("FECHA INGRESO", "")),
         fecha_ingreso_reconocida=_parsear_fecha(cab.get("FECHA REAL", "")),
-        categoria_profesional=cab.get("CATEGORIA", ""),
+        categoria=cab.get("CATEGORIA", ""),
+        calificacion_profesional=cab.get("CALIFICAC.PROFESIONAL", ""),
         banco_deposito=cab.get("BANCO DEPOSITO", ""),
         documento=cab.get("DOCUMENTO", "")
     )
