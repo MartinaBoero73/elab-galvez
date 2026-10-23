@@ -51,14 +51,12 @@ def _parsear_periodo(valor: str) -> PeriodoLiquidacion:
     match_anio = re.search(r'\b(19|20)\d{2}\b', texto)
     anio = int(match_anio.group()) if match_anio else 1900
     
-    # Safe name extraction (works for annual licenses and other with month not specificated)
-    mes = 1 
     for nombre_mes, numero_mes in meses.items():
         if nombre_mes in texto:
-            mes = numero_mes
-            break
+            return PeriodoLiquidacion(mes=numero_mes, anio=anio)
             
-    return PeriodoLiquidacion(mes=mes, anio=anio)
+    # If it doesn't find an exact month, forces mes=1 and injects the text as description
+    return PeriodoLiquidacion(mes=1, anio=anio, descripcion=valor.strip())
 
 
 def parsear_cabecera(texto_cabecera: str) -> dict:
