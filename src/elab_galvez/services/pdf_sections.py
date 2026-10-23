@@ -8,10 +8,13 @@ from elab_galvez.services.pdf_utils import obtener_imagen_servidor, formatear_mo
 def generar_cabecera(recibo: ReciboSueldo, estilo_normal, estilo_negrita, estilo_titulo, estilo_tabla, logo_filename=None) -> list:
     """Builds the document header, including employer data and legal metadata."""
     elementos = []
+
+    periodo_str = recibo.periodo.formato_estandar
+    periodo_imputado_str = recibo.periodo_imputado.formato_estandar if recibo.periodo_imputado else ""
+
+    up_periodo_str = recibo.periodo_ultimo_aporte.formato_estandar if recibo.periodo_ultimo_aporte else ""
     
-    periodo_str = f"{recibo.periodo.mes:02d}/{recibo.periodo.anio}"
-    periodo_liq_str = f"{recibo.periodo.anio}{recibo.periodo.mes:02d}"
-    fecha_aportes_str = recibo.fecha_ultimo_aporte.strftime("%d/%m/%Y") if recibo.fecha_ultimo_aporte else ""
+    fecha_aportes_str = f'{recibo.fecha_ultimo_aporte.strftime("%d/%m/%Y")}  PERIODO {up_periodo_str}' if recibo.fecha_ultimo_aporte else ""
     basico_str = formatear_moneda(recibo.sueldo_basico)
     
     logo_img = obtener_imagen_servidor("logos", logo_filename, max_width=120, max_height=45)
@@ -31,8 +34,9 @@ def generar_cabecera(recibo: ReciboSueldo, estilo_normal, estilo_negrita, estilo
         Paragraph("<b>RECIBO DE SUELDOS LEY 20.744</b>", estilo_titulo),
         Paragraph("<b>SEGÚN ANEXO III DECRETO 407/26</b>", estilo_titulo),
         Spacer(1, 4), 
-        Paragraph(f"<b>Período Liquidado:</b> {periodo_liq_str}", estilo_normal),
         Paragraph(f"<b>Período:</b> {periodo_str}", estilo_normal),
+        Paragraph(f"<b>Período Imputado:</b> {periodo_imputado_str}", estilo_normal),
+        Spacer(1, 4), 
         Paragraph(f"<b>Fecha Aportes:</b> {fecha_aportes_str}", estilo_normal),
         Paragraph(f"<b>Banco:</b> {recibo.empleado.banco_deposito or ''}", estilo_normal),
         Paragraph(f"<b>Básico:</b> {basico_str}", estilo_negrita),
