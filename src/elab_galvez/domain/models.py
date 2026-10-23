@@ -106,7 +106,9 @@ class ReciboSueldo(BaseModel):
 
     # this is the new component demanded by the new law passed in Argentina
     composicion_salarial: ComposicionSalarial = Field(default_factory=ComposicionSalarial)
+
     
+    periodo_imputado: PeriodoLiquidacion | None = None
     fecha_ultimo_aporte: date | None = None
     periodo_ultimo_aporte: PeriodoLiquidacion | None = None
 
