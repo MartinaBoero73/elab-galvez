@@ -253,6 +253,7 @@ def parsear_recibo_completo(
         empleado=empleado,
         sueldo_basico=_parsear_decimal(cab.get("BASICO POR MES", "")),
         forma_liquidacion=cab.get("FORMA LIQUIDACION", ""),
+        periodo_imputado=_parsear_periodo(cab.get("PERIODO IMPUTADO", "")),
         fecha_ultimo_aporte=_parsear_fecha(cab.get("FECHA ULTIMO APORTE", "")),
         periodo_ultimo_aporte=_parsear_periodo(cab.get("ULTIMO PERIODO", "ENERO 1900")),
         conceptos=det,
