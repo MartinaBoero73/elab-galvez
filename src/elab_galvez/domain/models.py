@@ -10,6 +10,21 @@ class PeriodoLiquidacion(BaseModel):
     """Receipt billing period (month and year)."""
     mes: int = Field(ge=1, le=12)
     anio: int = Field(ge=1900, le=2200)
+    descripcion: str | None = None 
+
+    @property
+    def formato_estandar(self) -> str:
+        """Returns 'MM/YYYY' or the raw description (e.g., 'LICENCIA ANUAL 2025')."""
+        if self.descripcion:
+            return self.descripcion
+        return f"{self.mes:02d}/{self.anio}"
+
+    @property
+    def formato_compacto(self) -> str:
+        """Returns 'YYYYMM' or the raw description."""
+        if self.descripcion:
+            return self.descripcion
+        return f"{self.anio}{self.mes:02d}"
 
 class Empleador(BaseModel):
     """Employer who issued the receipt."""
