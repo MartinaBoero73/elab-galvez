@@ -64,6 +64,10 @@ def _parsear_periodo(valor: str) -> PeriodoLiquidacion:
 def parsear_cabecera(texto_cabecera: str) -> dict:
     datos = {"contribuciones": []}
     buffer_multilinea = ""
+    
+    # State machine buffers to hold optional fields before the main contribution triggers
+    temp_porcentaje = None
+    temp_base = None
 
     for linea in texto_cabecera.splitlines():
         if not linea.strip():
@@ -89,14 +93,32 @@ def parsear_cabecera(texto_cabecera: str) -> dict:
                 buffer_multilinea = ""
 
             clave_upper = clave.upper()
+            
+            # --- STATE MACHINE: Capture optional fields ---
+            if clave_upper.startswith("PORCENTAJE "):
+                valor_limpio = valor.strip()
+                temp_porcentaje = f"{valor_limpio}%" if not valor_limpio.endswith("%") else valor_limpio
+                continue
+                
+            if clave_upper.startswith("BASE "):
+                temp_base = _parsear_decimal(valor)
+                continue
+
+            # --- TRIGGER: Build the object and inject buffers ---
             if clave_upper.startswith("CONTRIBUCIONES") and clave_upper != "SUBTOTAL CONTRIBUCIONES EMPLEADOR":
                 descripcion_limpia = re.sub(r'^CONTRIBUCIONES\s*', '', clave, flags=re.IGNORECASE).strip()
+                
                 datos["contribuciones"].append(
                     ContribucionPatronal(
                         descripcion=descripcion_limpia,
+                        unidad_porcentaje=temp_porcentaje, # Injected from buffer
+                        base_calculo=temp_base,            # Injected from buffer
                         monto=_parsear_decimal(valor)
                     )
                 )
+                # Reset buffers to prevent leaking data to the next contribution
+                temp_porcentaje = None
+                temp_base = None
             else:
                 datos[clave_upper] = valor
 
