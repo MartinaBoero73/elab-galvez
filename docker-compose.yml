@@ -1,0 +1,10 @@
+services:
+  payroll-api:
+    build: .
+    container_name: elab-galvez-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src/elab_galvez/assets:/app/src/elab_galvez/assets
+    environment:
+      - ENVIRONMENT=development
