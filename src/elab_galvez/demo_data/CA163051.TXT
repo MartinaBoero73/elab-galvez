@@ -1,0 +1,59 @@
+C:\SUELDOS\GRAFICOS\163.jpg                                 LOGO EMPRESA
+LICENCIA ANUAL 2025                                         PERIODO
+OCTUBRE 2026                                                PERIODO IMPUTADO
+River Plei                                                  EMPLEADOR
+Avda. Jorge Newbery KM 29.300,Ezeiza                        DOMICILIO
+30-88888888-2                                               CUIT
+051                                                         LEGAJO
+DEMICHELIS Martín                                           NOMBRE
+03/03/2022                                                  FECHA INGRESO
+DNI-20.000.000                                              DOCUMENTO
+20-20000000-5                                               CUIL
+03/03/2022                                                  FECHA REAL
+Director Técnico                                            CATEGORIA
+Director Técnico En Planta                                  CALIFICAC.PROFESIONAL
+08/10/2026                                                  FECHA ULTIMO APORTE
+SETIEMBRE 2026                                              ULTIMO PERIODO
+INTERBANKING                                                BANCO DEPOSITO
+2422374,00                                                  BASICO POR MES
+MENSUAL                                                     FORMA LIQUIDACION
+     10,77                                                  PORCENTAJE JUBILACION
+2689236,86                                                  BASE JUBILACION
+ 289630,81                                                  CONTRIBUCIONES JUBILACION
+      1,59                                                  PORCENTAJE LEY 19032
+2689237,11                                                  BASE LEY 19032
+  42758,87                                                  CONTRIBUCIONES LEY 19032
+      4,70                                                  PORCENTAJE CASFEC
+2689236,81                                                  BASE CASFEC
+ 126394,13                                                  CONTRIBUCIONES CASFEC
+      0,94                                                  PORCENTAJE FDO.NAC.EMPLEO
+2689237,23                                                  BASE FDO.NAC.EMPLEO
+  25278,83                                                  CONTRIBUCIONES FDO.NAC.MPLEO
+      6,00                                                  PORCENTAJE OBRA SOCIAL
+2689236,83                                                  BASE OBRA SOCIAL 
+ 161354,21                                                  CONTRIBUCIONES OBRA SOCIAL
+      7,20                                                  PORCENTAJE ART.
+ 193625,05                                                  CONTRIBUCIONES ART. Y SCVO.
+  26892,37                                                  CONTRIBUCIONES DERIVADAS DEL CCT.
+ 865934,27                                                  SUBTOTAL CONTRIBUCIONES EMPLEADOR
+2124497,13                                                  SUELDO NETO DE BOLSILLO
+ 134461,84                                                  TOTAL COSTO SINDICAL 
+  26892,37                                                  COSTO SINDICAL EMPLEADOR
+ 107569,47                                                  COSTO SINDICAL TRABAJADOR
+ 585446,87                                                  TOTAL SEGURIDAD SOCIAL
+ 289630,81                                                  SEG.SOCIAL EMPLEADOR
+ 295816,06                                                  SEG.SOCIAL TRABAJADOR
+ 217828,19                                                  TOTAL OBRA SOCIAL
+ 137151,08                                                  OBRA SOCIAL EMPLEADOR
+  80677,11                                                  OBRA SOCIAL TRABAJADOR
+ 123435,98                                                  TOTAL COSTO INSSJP
+  42758,87                                                  INSSJP. EMPLEADOR
+  80677,11                                                  INSSJP. TRABAJADOR
+ 193625,05                                                  TOTAL COSTO ART.
+ 193625,05                                                  ART. EMPLEADOR
+      0,00                                                  TOTAL COSTO SCVO.
+      0,00                                                  SCVO. EMPLEADOR
+dos millones ciento veinticuatro mil cuatrocientos noventa y siete Pesos con 
+trece centavos.-                                            IMPORTE EN LETRAS
+0088888888888888882388                                      ACREDITADO EN CBU
+                                                            TEXTO
