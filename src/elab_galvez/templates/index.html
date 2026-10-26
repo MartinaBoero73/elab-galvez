@@ -59,19 +59,45 @@
                 </div>
 
                 <div class="space-y-4 mb-6">
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500 uppercase mb-1">Logo Empresa (opcional)</label>
-                        <input type="file" id="file-logo" accept="image/png, image/jpeg" class="block w-full text-xs text-gray-500 file:py-1 file:px-3 file:rounded-md file:border-0 file:bg-gray-100 file:text-gray-700 border border-gray-200 rounded-md cursor-pointer">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500 uppercase mb-1">Firma Empleador (opcional)</label>
-                        <input type="file" id="file-firma-emp" accept="image/png, image/jpeg" class="block w-full text-xs text-gray-500 file:py-1 file:px-3 file:rounded-md file:border-0 file:bg-gray-100 file:text-gray-700 border border-gray-200 rounded-md cursor-pointer">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-gray-500 uppercase mb-1">Firma Trabajador (opcional)</label>
-                        <input type="file" id="file-firma-trab" accept="image/png, image/jpeg" class="block w-full text-xs text-gray-500 file:py-1 file:px-3 file:rounded-md file:border-0 file:bg-gray-100 file:text-gray-700 border border-gray-200 rounded-md cursor-pointer">
-                    </div>
-                </div>
+                  <div class="relative">
+                      <label class="block text-xs font-medium text-gray-500 uppercase mb-1">Logo Empresa (opcional)</label>
+                      <div class="flex items-center">
+                          <input type="file" id="file-logo" accept="image/png, image/jpeg" 
+                                onchange="toggleClearBtn('file-logo', 'clear-logo')"
+                                class="block w-full text-xs text-gray-500 file:py-1 file:px-3 file:rounded-md file:border-0 file:bg-gray-100 file:text-gray-700 border border-gray-200 rounded-md cursor-pointer">
+                          <button type="button" id="clear-logo" onclick="clearInput('file-logo', 'clear-logo')" 
+                                  class="hidden ml-2 text-red-500 hover:text-red-700 font-bold px-2 py-1 bg-red-50 rounded-md border border-red-200 transition-colors">
+                              ✕
+                          </button>
+                      </div>
+                  </div>
+
+                  <div class="relative">
+                      <label class="block text-xs font-medium text-gray-500 uppercase mb-1">Firma Empleador (opcional)</label>
+                      <div class="flex items-center">
+                          <input type="file" id="file-firma-emp" accept="image/png, image/jpeg" 
+                                onchange="toggleClearBtn('file-firma-emp', 'clear-firma-emp')"
+                                class="block w-full text-xs text-gray-500 file:py-1 file:px-3 file:rounded-md file:border-0 file:bg-gray-100 file:text-gray-700 border border-gray-200 rounded-md cursor-pointer">
+                          <button type="button" id="clear-firma-emp" onclick="clearInput('file-firma-emp', 'clear-firma-emp')" 
+                                  class="hidden ml-2 text-red-500 hover:text-red-700 font-bold px-2 py-1 bg-red-50 rounded-md border border-red-200 transition-colors">
+                              ✕
+                          </button>
+                      </div>
+                  </div>
+
+                  <div class="relative">
+                      <label class="block text-xs font-medium text-gray-500 uppercase mb-1">Firma Trabajador (opcional)</label>
+                      <div class="flex items-center">
+                          <input type="file" id="file-firma-trab" accept="image/png, image/jpeg" 
+                                onchange="toggleClearBtn('file-firma-trab', 'clear-firma-trab')"
+                                class="block w-full text-xs text-gray-500 file:py-1 file:px-3 file:rounded-md file:border-0 file:bg-gray-100 file:text-gray-700 border border-gray-200 rounded-md cursor-pointer">
+                          <button type="button" id="clear-firma-trab" onclick="clearInput('file-firma-trab', 'clear-firma-trab')" 
+                                  class="hidden ml-2 text-red-500 hover:text-red-700 font-bold px-2 py-1 bg-red-50 rounded-md border border-red-200 transition-colors">
+                              ✕
+                          </button>
+                      </div>
+                  </div>
+              </div>
 
                 <button id="btn-generar" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition-colors flex justify-center items-center active:scale-95">
                     <span id="btn-text">Generar y Previsualizar</span>
@@ -183,6 +209,24 @@
                 btnGenerar.disabled = false;
             }
         });
+
+      function toggleClearBtn(inputId, btnId) {
+          const input = document.getElementById(inputId);
+          const btn = document.getElementById(btnId);
+          if (input.files && input.files.length > 0) {
+              btn.classList.remove('hidden');
+          } else {
+              btn.classList.add('hidden');
+          }
+      }
+
+      function clearInput(inputId, btnId) {
+          const input = document.getElementById(inputId);
+          const btn = document.getElementById(btnId);
+          input.value = "";
+          btn.classList.add('hidden');
+      }
+
     </script>
 </body>
 </html>
