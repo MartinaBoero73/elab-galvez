@@ -310,6 +310,10 @@ def generar_seccion_final(recibo, estilo_normal, estilo_negrita, estilo_titulo, 
         
     elementos.append(Paragraph("Recibí conforme el importe neto de la presente liquidación y recibo y duplicado de los mismos.", estilo_normal))
     
+    if recibo.texto_ad:
+        elementos.append(Spacer(1, 5))
+        elementos.append(Paragraph(f"{recibo.texto_ad}", estilo_normal))
+
     img_firma_trab = obtener_imagen_servidor("firmas", firma_trab_filename, max_width=120, max_height=50) or Spacer(1, 50)
     img_firma_emp = obtener_imagen_servidor("firmas", firma_emp_filename, max_width=120, max_height=50) or Spacer(1, 50)
     
