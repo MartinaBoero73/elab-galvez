@@ -261,5 +261,6 @@ def parsear_recibo_completo(
         sueldo_neto_bolsillo=_parsear_decimal(cab.get("SUELDO NETO DE BOLSILLO", "")),
         importe_en_letras=cab.get("IMPORTE EN LETRAS", None),
         cbu_acreditacion=cab.get("ACREDITADO EN CBU", None),
+        texto_ad=cab.get("TEXTO", None),
         composicion_salarial=comp_salarial
     )
