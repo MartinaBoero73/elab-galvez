@@ -103,6 +103,7 @@ class ReciboSueldo(BaseModel):
     sueldo_neto_bolsillo: Decimal = Decimal("0.0")
     importe_en_letras: Optional[str] = None
     cbu_acreditacion: Optional[str] = None
+    texto_ad: Optional[str] = None
 
     # this is the new component demanded by the new law passed in Argentina
     composicion_salarial: ComposicionSalarial = Field(default_factory=ComposicionSalarial)
