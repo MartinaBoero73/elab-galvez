@@ -34,7 +34,7 @@ def generar_cabecera(recibo: ReciboSueldo, estilo_normal, estilo_negrita, estilo
         Paragraph("<b>RECIBO DE SUELDOS LEY 20.744</b>", estilo_titulo),
         Paragraph("<b>SEGÚN ANEXO III DECRETO 407/26</b>", estilo_titulo),
         Spacer(1, 4), 
-        Paragraph(f"<b>Período:</b> {periodo_str}", estilo_normal),
+        Paragraph(f"<font size='10'><b>Período:</b> {periodo_str}</font>", estilo_negrita),
         Paragraph(f"<b>Período Imputado:</b> {periodo_imputado_str}", estilo_normal),
         Spacer(1, 4), 
         Paragraph(f"<b>Fecha Aportes:</b> {fecha_aportes_str}", estilo_normal),
