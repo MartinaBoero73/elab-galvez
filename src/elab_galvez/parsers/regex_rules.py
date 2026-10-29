@@ -5,8 +5,8 @@ import re
 CABECERA_PATTERN = re.compile(r'^(.*?)\s{2,}(.+)$')
 
 # DETAIL RULES (DE... Files)
-# Captures the monetary amount located at the end of each line.
-MONTO_DETALLE_PATTERN = re.compile(r'([\d.,]+)$')
+# Captures the monetary amount located at the end of each line ( NOW supports negatives).
+MONTO_DETALLE_PATTERN = re.compile(r'(-?[\d.,]+)$')
 
 # Visual indentation thresholds to classify concepts by type.
 LIMITE_REMUNERATIVO = 55
